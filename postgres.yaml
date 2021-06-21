@@ -1,0 +1,17 @@
+version: "3"
+services:
+  demo-postgres:
+    image: postgres:10
+    restart: unless-stopped
+    container_name: demo-postgres
+    environment:
+      POSTGRES_USER: demo
+      POSTGRES_PASSWORD: demo
+      POSTGRES_DB: demo
+    ports:
+      - 5739:5432
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "500k"
+        max-file: "1"
